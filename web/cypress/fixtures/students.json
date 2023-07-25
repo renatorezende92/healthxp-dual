@@ -1,0 +1,58 @@
+{
+    "create": {
+        "name": "Jannine",
+        "email": "jannine@bootcamp.com",
+        "age": "31",
+        "weight": "72",
+        "feet_tall": "1.80"
+    },
+    "duplicate": {
+        "name": "Jack",
+        "email": "jack@bootcamp.com",
+        "age": "33",
+        "weight": "77",
+        "feet_tall": "1.70"
+    },
+    "remove": {
+        "name": "Jessica dos testes",
+        "email": "jessica@bootcamp.com",
+        "age": "36",
+        "weight": "77",
+        "feet_tall": "1.70"
+    },
+    "required": {
+        "name": "",
+        "email": "",
+        "age": "",
+        "weight": "",
+        "feet_tall": ""
+    },
+    "inv_min_age": {
+        "name": "Marcos",
+        "email": "marcos@bootcamp.com",
+        "age": "15",
+        "weight": "60",
+        "feet_tall": "1,40"
+    },
+    "inv_max_age": {
+        "name": "Marcos",
+        "email": "marcos@bootcamp.com",
+        "age": "100",
+        "weight": "60",
+        "feet_tall": "1,40"
+    },
+    "inv_weight": {
+        "name": "João",
+        "email": "joao@bootcamp.com",
+        "age": "19",
+        "weight": "0",
+        "feet_tall": "1,40"
+    },
+    "inv_feet_tall": {
+        "name": "João",
+        "email": "joao@bootcamp.com",
+        "age": "19",
+        "weight": "76",
+        "feet_tall": "0,00"
+    }
+}

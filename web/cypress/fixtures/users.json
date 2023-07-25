@@ -1,0 +1,53 @@
+{
+  "admin": {
+    "name": "Admin",
+    "email": "admin@healthxp.com",
+    "password": "xperience"
+  },
+  "inv_pass": {
+    "email": "admin@healthxp.com",
+    "password": "dualXP"
+  },
+  "email_not_found": {
+    "email": "cypress@healthxp.com",
+    "password": "dualXP"
+  },
+  "inv_emails": [
+    {
+      "email": "admin&healthxp.com",
+      "password": "xperience"
+    },
+    {
+      "email": "www.test.com",
+      "password": "xperience"
+    },
+    {
+      "email": "renato@@amigo.com",
+      "password": "xperience"
+    },
+    {
+      "email": "132345342",
+      "password": "xperience"
+    },
+    {
+      "email": "afsdgjnasj",
+      "password": "xperience"
+    },
+    {
+      "email": "admin*gmail.com",
+      "password": "xperience"
+    },
+    {
+      "email": "   @healthxp.com",
+      "password": "xperience"
+    }
+  ],
+  "empty_email": {
+    "email": "",
+    "password": "dual"
+  },
+  "empty_password": {
+    "email": "admin@healthxp.com",
+    "password": ""
+  }
+}
