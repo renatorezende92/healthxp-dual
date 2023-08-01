@@ -1,4 +1,4 @@
-import navbar from './components/NavBar'
+import navbar from './components/Navbar'
 import popup from './components/Popup'
 
 class StudentPage {
@@ -22,7 +22,7 @@ class StudentPage {
         cy.contains('button', 'Cadastrar').click()
     }
 
-    requiredMessage(label, text) {
+    alertMessage(label, text) {
         cy.contains('label', label)
             .parent()
             .find('span')

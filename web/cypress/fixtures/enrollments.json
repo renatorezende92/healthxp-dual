@@ -1,0 +1,12 @@
+{
+    "create": {
+        "student": {
+            "name": "Fernando",
+            "email": "fernando@bootcamp.com",
+            "age": "34",
+            "weight": "85,00",
+            "feet_tall": "1,70"
+        },
+        "plan": "Health"
+    }
+}

@@ -52,11 +52,11 @@ describe('alunos', () => {
         studentPage.goToRegister()
         studentPage.submitForm(student)
 
-        studentPage.requiredMessage('Nome completo', 'Nome é obrigatório')
-        studentPage.requiredMessage('E-mail', 'O email é obrigatório')
-        studentPage.requiredMessage('Idade', 'A idade é obrigatória')
-        studentPage.requiredMessage('Peso (em kg)', 'O peso é obrigatório')
-        studentPage.requiredMessage('Altura', 'A altura é obrigatória')
+        studentPage.alertMessage('Nome completo', 'Nome é obrigatório')
+        studentPage.alertMessage('E-mail', 'O email é obrigatório')
+        studentPage.alertMessage('Idade', 'A idade é obrigatória')
+        studentPage.alertMessage('Peso (em kg)', 'O peso é obrigatório')
+        studentPage.alertMessage('Altura', 'A altura é obrigatória')
 
     })
 
@@ -67,7 +67,7 @@ describe('alunos', () => {
 
         studentPage.goToRegister()
         studentPage.submitForm(student)
-        studentPage.requiredMessage('Idade', 'A idade mínima para treinar é 16 anos!')
+        studentPage.alertMessage('Idade', 'A idade mínima para treinar é 16 anos!')
 
     })
 
@@ -78,33 +78,29 @@ describe('alunos', () => {
 
         studentPage.goToRegister()
         studentPage.submitForm(student)
-        studentPage.requiredMessage('Idade', 'A idade máxima para treinar é 90 anos!')
+        studentPage.alertMessage('Idade', 'A idade máxima para treinar é 90 anos!')
 
     })
 
     it('Não deve cadastrar aluno com peso menor ou igual a 0', () => {
         const student = students.inv_weight
 
-        cy.task('deleteStudent', student.email)
-
         cy.adminLogin()
 
         studentPage.goToRegister()
         studentPage.submitForm(student)
-        studentPage.requiredMessage('Peso', 'O peso deve ser maior que 0')
+        studentPage.alertMessage('Peso', 'O peso deve ser maior que 0')
 
     })
 
     it('Não deve cadastrar aluno com altura menor ou igual a 0', () => {
         const student = students.inv_feet_tall
 
-        cy.task('deleteStudent', student.email)
-
         cy.adminLogin()
 
         studentPage.goToRegister()
         studentPage.submitForm(student)
-        studentPage.requiredMessage('Altura', 'A altura deve ser maior que 0')
+        studentPage.alertMessage('Altura', 'A altura deve ser maior que 0')
     })
 
 })

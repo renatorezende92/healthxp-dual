@@ -3,10 +3,10 @@ const { defineConfig } = require("cypress");
 const { Pool } = require('pg')
 
 const dbconfig = {
-  host: 'motty.db.elephantsql.com',
-  user: 'wcqbxeif',
-  password: '52lka302qqQR8Qw3Lum6vaIq0WZefAHa',
-  database: 'wcqbxeif',
+  host: 'silly.db.elephantsql.com',
+  user: 'hvuaulgq',
+  password: 'iXF5JQkQkizb_FTNmoTYkrrzHy_M6kHr',
+  database: 'hvuaulgq',
   port: 5432
 }
 
@@ -42,7 +42,7 @@ module.exports = defineConfig({
                 VALUES ($1, $2, $3, $4, $5)
               )
               DELETE FROM students WHERE email = $2;
-              `
+            `
 
             const values = [
               student.name, student.email, student.age, student.weight, student.feet_tall

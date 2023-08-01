@@ -5,6 +5,11 @@ class Navbar {
             .should('be.visible')
     }
 
+    goToEnrolls() {
+        cy.get('a[href="/enrollments"]')
+            .click()
+    }
+
 }
 
 export default new Navbar()
