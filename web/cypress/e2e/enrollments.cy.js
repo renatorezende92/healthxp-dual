@@ -24,7 +24,7 @@ describe('matriculas', () => {
 
     })
 
-    it.only('não deve criar matricula duplicada', () => {
+    it('não deve criar matricula duplicada', () => {
         const dataTest = data.duplicate
 
         //cy.task('resetStudent', dataTest.student)
