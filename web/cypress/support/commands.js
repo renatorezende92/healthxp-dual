@@ -12,10 +12,20 @@ Cypress.Commands.add('adminLogin', () => {
 
 })
 
+Cypress.Commands.add('createQuestion', (question) => {
+    cy.request({
+        url: Cypress.env('apiUrl') + `/students/${Cypress.env('studentId')}/help-orders`,
+        method: 'POST',
+        body: { question }
+    }).then(response => {
+        expect(response.status).to.eq(201)
+    })
+})
+
 Cypress.Commands.add('createEnroll', (dataTest) => {
 
     cy.request({
-        url: 'http://localhost:5555/enrolls',
+        url: Cypress.env('apiHelper') + '/enrolls',
         method: 'POST',
         body: {
             email: dataTest.student.email,
@@ -62,17 +72,19 @@ Cypress.Commands.add('createEnroll', (dataTest) => {
 
 Cypress.Commands.add('resetStudent', (student) => {
     cy.request({
-        url: 'http://localhost:5555/students',
+        url: Cypress.env('apiHelper') + '/students',
         method: 'POST',
         body: student
     }).then(response => {
         expect(response.status).to.eq(201)
+        cy.log(response.body.student_id)
+        Cypress.env('studentId', response.body.student_id)
     })
 })
 
 Cypress.Commands.add('deleteStudent', (studentEmail) => {
     cy.request({
-        url: 'http://localhost:5555/students/' + studentEmail,
+        url: Cypress.env('apiHelper') + '/students/' + studentEmail,
         method: 'DELETE',
     }).then(response => {
         expect(response.status).to.eq(204)

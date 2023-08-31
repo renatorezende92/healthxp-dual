@@ -1,35 +1,46 @@
+require('dotenv').config()
+
 const { Pool } = require('pg')
 
 const pool = new Pool({
-    host: 'silly.db.elephantsql.com',
-    user: 'hvuaulgq',
-    password: 'iXF5JQkQkizb_FTNmoTYkrrzHy_M6kHr',
-    database: 'hvuaulgq',
-    port: 5432
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
 })
 
 const deleteAndCreateStudent = (req, res) => {
 
     const student = req.body
 
-    const query = `
-    WITH add AS (
+    const queryDelete = `
+        DELETE FROM students WHERE email = $1;
+    `
+
+    const queryInsert = `
       INSERT INTO students (name, email, age, weight, feet_tall)
       VALUES ($1, $2, $3, $4, $5)
-    )
-    DELETE FROM students WHERE email = $2;
+      RETURNING id as student_id;
   `
 
     const values = [
         student.name, student.email, student.age, student.weight, student.feet_tall
     ]
 
-    pool.query(query, values, function (error, result) {
+    pool.query(queryDelete, [student.email], function (error, result) {
         if (error) {
             return res.status(500).json(error)
         }
-        res.status(201).json(result)
+        pool.query(queryInsert, values, function (error, result) {
+            if (error) {
+                return res.status(500).json(error)
+            }
+            res.status(201).json({ student_id: result.rows[0].student_id })
+        })
     })
+
+
 }
 
 const deleteStudentByEmail = (req, res) => {
@@ -62,7 +73,7 @@ const selectStudent = (req, res) => {
 
 const insertEnrollByEmail = (req, res) => {
 
-    const {email, plan_id, price} = req.body
+    const { email, plan_id, price } = req.body
 
     const query = `
         INSERT INTO enrollments (enrollment_code, student_id, plan_id, credit_card, status, price)
