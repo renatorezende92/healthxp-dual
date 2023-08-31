@@ -93,7 +93,7 @@ Cypress.Commands.add('deleteStudent', (studentEmail) => {
 
 Cypress.Commands.add('deleteQuestion', () => {
     cy.request({
-        url: Cypress.env('apiHelper') + '/clean-help-orders',
+        url: Cypress.env('apiHelper') + '/help-orders',
         method: 'DELETE'
     }).then(response => {
         expect(response.status).to.eq(204)

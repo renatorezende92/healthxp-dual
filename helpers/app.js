@@ -24,7 +24,7 @@ const studentSchema = Joi.object({
 app.post('/students', validator.body(studentSchema), db.deleteAndCreateStudent)
 app.delete('/students/:email', db.deleteStudentByEmail)
 
-app.delete('/clean-help-orders', db.deleteQuestions)
+app.delete('/help-orders', db.deleteQuestions)
 
 app.post('/enrolls', db.insertEnrollByEmail)
 
