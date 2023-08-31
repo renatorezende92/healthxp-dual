@@ -1,5 +1,6 @@
 require('dotenv').config()
 
+const { func } = require('joi')
 const { Pool } = require('pg')
 
 const pool = new Pool({
@@ -57,20 +58,6 @@ const deleteStudentByEmail = (req, res) => {
     })
 }
 
-const selectStudent = (req, res) => {
-
-    const studentEmail = req.params.email
-
-    const query = 'SELECT id FROM students WHERE email = $1;'
-
-    pool.query(query, [studentEmail], function (error, result) {
-        if (error) {
-            return res.status(500).json(error)
-        }
-        res.status(200).json(result.rows[0])
-    })
-}
-
 const insertEnrollByEmail = (req, res) => {
 
     const { email, plan_id, price } = req.body
@@ -98,9 +85,22 @@ const insertEnrollByEmail = (req, res) => {
     })
 }
 
+const deleteQuestions = (req, res) => {
+
+    const query = 'delete FROM "public"."help_orders";'
+
+    pool.query(query, function (error, result) {
+        if (error) {
+            return res.status(500).json(error)
+        }
+        res.status(204).end()
+    })
+
+}
 
 module.exports = {
     deleteAndCreateStudent,
     deleteStudentByEmail,
-    insertEnrollByEmail
+    insertEnrollByEmail,
+    deleteQuestions
 }

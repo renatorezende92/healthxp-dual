@@ -10,6 +10,11 @@ class Navbar {
             .click()
     }
 
+    goToNotifications() {
+        cy.get('div[class=notifications]')
+            .click()
+    }
+
 }
 
 export default new Navbar()

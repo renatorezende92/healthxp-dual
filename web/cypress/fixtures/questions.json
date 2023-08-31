@@ -12,6 +12,24 @@
             "name": "Premium",
             "price": 99.99
         },
-        "question": "Por quanto tempo posso tomar creatina?"
+        "notification": "Por quanto tempo posso tomar whey?"
+    },
+    "response": {
+        "student": {
+            "name": "Mario",
+            "email": "mario@yahoo.com",
+            "age": "22",
+            "weight": "65",
+            "feet_tall": "1.70"
+        },
+        "plan": {
+            "id": 2,
+            "name": "Premium",
+            "price": 99.99
+        },
+        "notification": {
+            "question":"Em quanto tempo vou deixar de ser magro?",
+            "answer": "depende da sua vontade e dedicacao"
+        }
     }
 }
